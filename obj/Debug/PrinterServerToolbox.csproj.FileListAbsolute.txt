@@ -1,0 +1,14 @@
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\bin\Debug\PrinterServerToolbox.exe.config
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\bin\Debug\PrinterServerToolbox.exe
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\bin\Debug\PrinterServerToolbox.pdb
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.csproj.AssemblyReference.cache
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.csproj.SuggestedBindingRedirects.cache
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.Form1.resources
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.GetPrinterListForm.resources
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.Properties.Resources.resources
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.csproj.GenerateResource.cache
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.csproj.CoreCompileInputs.cache
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.exe
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.pdb
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.BulkCreatePrinterForm.resources
+E:\Programing\PrinterServerToolbox\PrinterServerToolbox\obj\Debug\PrinterServerToolbox.ConfirmSpoolerRestart.resources
