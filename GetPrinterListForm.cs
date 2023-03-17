@@ -134,5 +134,10 @@ namespace PrinterServerToolbox
 
             
         }
+
+        private void PrinterListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

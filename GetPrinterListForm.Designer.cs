@@ -75,6 +75,7 @@
             this.PrinterListView.Name = "PrinterListView";
             this.PrinterListView.Size = new System.Drawing.Size(1265, 499);
             this.PrinterListView.TabIndex = 8;
+            this.PrinterListView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PrinterListView_CellContentClick);
             // 
             // Server_name
             // 

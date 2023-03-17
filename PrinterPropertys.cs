@@ -6,35 +6,9 @@ using System.Threading.Tasks;
 
 namespace PrinterServerToolbox
 {
-    public class PrinterPropertys
-    {
-        private string shortPath;
-        private string name;
+    public class PrinterPropertys {
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
-        }
-        public string Path
-        {
-            get
-            {
-                return (shortPath + name);
-            }
-        }
-
-
-        public PrinterPropertys(string ShortPath, string Name)
-        {
-            shortPath = ShortPath;
-            name = Name;
-        }
+        public string Name;
+        public string Path;
     }
 }

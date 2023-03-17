@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PrinterServerToolbox
@@ -15,15 +16,22 @@ namespace PrinterServerToolbox
         private static string prnmngr = @"C:\Windows\System32\printing_Admin_Scripts\en-US\Prnmngr.vbs";
         private static string prnport = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prnport.vbs";
         private static string prndrvr = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
+        private static string prncnfg = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
 
-        /// <summary>
-        /// Obtain a text list of all printers on the local server
-        /// </summary>
-        /// <returns>string array of all printers</returns>
+
         public static string GetAllPrinters()
         {
             string scriptArguments = $"-l";
             return StartScriptProcess(prnmngr, scriptArguments);
+        }
+
+        public static string GetAllPrintDrivers()
+        {
+            string scriptArguments = $"-l";
+            string rawPrintDriverList = StartScriptProcess(prndrvr, scriptArguments);
+            StringReader stringReader = new StringReader(rawPrintDriverList);
+            Regex driverName = new Regex(@"");
+            return "no";
         }
 
 
@@ -40,17 +48,21 @@ namespace PrinterServerToolbox
 
         public static void AddPrinterDriver(string Model,string InfPath)
         {
-
-
-
-
-
-            string scriptArguments = $"cscript prndrvr -a -m {Model} -i {InfPath}";
+            string scriptArguments = $"-a -m {Model} -i {InfPath}";
             StartScriptProcess(prndrvr, scriptArguments);
-            
         }
 
-        //public static void AddPrinters(string[] PrinterNames,string[] Printer PortName, string PortIP, bool SNMPon,)
+        public static void AddPrinters(List<PrinterOB> PrintersList)
+        {
+            foreach(PrinterOB printer in PrintersList){
+
+                string scriptArguments = $"-a -p {printer.Name} -m {printer.Driver}";
+                StartScriptProcess(prnmngr, scriptArguments);
+
+            }
+        }
+
+
 
 
         private static string StartScriptProcess(string scriptDirectory, string arguments)
