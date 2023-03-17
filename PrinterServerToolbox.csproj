@@ -92,8 +92,10 @@
     <Compile Include="GetPrinterListForm.Designer.cs">
       <DependentUpon>GetPrinterListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrinterDriver.cs" />
     <Compile Include="PrinterOB.cs" />
     <Compile Include="PrinterProcesser.cs" />
+    <Compile Include="PrinterPropertys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BulkCreatePrinterForm.resx">

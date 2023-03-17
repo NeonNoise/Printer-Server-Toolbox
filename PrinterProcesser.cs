@@ -50,7 +50,7 @@ namespace PrinterServerToolbox
             
         }
 
-        public static void AddPrinters(string[] PrinterNames,string[] Printer PortName, string PortIP, bool SNMPon,)
+        //public static void AddPrinters(string[] PrinterNames,string[] Printer PortName, string PortIP, bool SNMPon,)
 
 
         private static string StartScriptProcess(string scriptDirectory, string arguments)

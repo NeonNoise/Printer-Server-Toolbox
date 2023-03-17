@@ -21,5 +21,10 @@ namespace PrinterServerToolbox
         {
 
         }
+
+        private void tXTToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
