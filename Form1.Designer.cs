@@ -80,6 +80,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Printer Server Toolbox";
+            this.Load += new System.EventHandler(this.CheckPropertysFolder);
             this.ResumeLayout(false);
 
         }

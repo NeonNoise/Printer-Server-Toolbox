@@ -29,5 +29,12 @@ namespace PrinterServerToolbox
                 return (shortPath + name);
             }
         }
+
+
+        public PrinterPropertys(string ShortPath, string Name)
+        {
+            shortPath = ShortPath;
+            name = Name;
+        }
     }
 }

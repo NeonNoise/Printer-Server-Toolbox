@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PrinterServerToolbox
 {
@@ -33,6 +34,15 @@ namespace PrinterServerToolbox
         {
             ConfirmSpoolerRestart confirmSpoolerRestart = new ConfirmSpoolerRestart();
             confirmSpoolerRestart.Show();
+        }
+
+        private void CheckPropertysFolder(object sender, EventArgs e)
+        {
+            string myDirectory = Directory.GetCurrentDirectory() + @"\PrinterPropertys";
+            if(!Directory.Exists(myDirectory))
+            {
+                Directory.CreateDirectory(myDirectory);
+            }
         }
     }
 }
