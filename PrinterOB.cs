@@ -11,6 +11,7 @@ namespace PrinterServerToolbox
     {
         private string portIP;
         private bool isNullPort;
+
         Regex IPFormat = new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
         Regex IPNulFormat = new Regex(@"nul");
 
@@ -18,6 +19,7 @@ namespace PrinterServerToolbox
         public string Comment;
         public string Location;
         public string PortName;
+        public string ShareName;
         public string PortIP
         {
             get
@@ -41,6 +43,20 @@ namespace PrinterServerToolbox
                 }
             }
         }
+        public bool IsShared
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(ShareName)){
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
         public PrinterDriver Driver;
         public bool AdvancedPrinterFeaturesEnabled;
         public string PrintProcessor;
