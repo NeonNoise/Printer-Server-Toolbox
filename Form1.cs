@@ -32,8 +32,7 @@ namespace PrinterServerToolbox
 
         private void ConfirmSpoolerReboot(object sender, EventArgs e)
         {
-            ConfirmSpoolerRestart confirmSpoolerRestart = new ConfirmSpoolerRestart();
-            confirmSpoolerRestart.Show();
+
         }
 
         private void CheckPropertysFolder(object sender, EventArgs e)
