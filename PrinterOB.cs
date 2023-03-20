@@ -30,6 +30,7 @@ namespace PrinterServerToolbox
             {
                 if (IPFormat.IsMatch(value))
                 {
+                    isNullPort = false;
                     portIP = value;
                 }
                 else if (IPNulFormat.IsMatch(value))
@@ -39,6 +40,7 @@ namespace PrinterServerToolbox
                 }
                 else
                 {
+                    isNullPort = false;
                     portIP = "0.0.0.0";
                 }
             }

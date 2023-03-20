@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BulkCreatePrinterForm));
             this.openDriverFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGridView_PrinterCreation = new System.Windows.Forms.DataGridView();
             this.PrintQueueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +59,7 @@
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bulkCreatePrintQueuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testCreateFirstQueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_PrinterCreation)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,12 +67,12 @@
             // 
             this.openDriverFileDialog.FileName = "openFileDialog1";
             // 
-            // dataGridView1
+            // DataGridView_PrinterCreation
             // 
-            this.dataGridView1.AllowDrop = true;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridView_PrinterCreation.AllowDrop = true;
+            this.DataGridView_PrinterCreation.AllowUserToOrderColumns = true;
+            this.DataGridView_PrinterCreation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView_PrinterCreation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PrintQueueName,
             this.Location,
             this.Comment,
@@ -82,11 +82,10 @@
             this.Shared,
             this.ShareName,
             this.DriverName});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1277, 414);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DataGridView_PrinterCreation.Location = new System.Drawing.Point(0, 27);
+            this.DataGridView_PrinterCreation.Name = "DataGridView_PrinterCreation";
+            this.DataGridView_PrinterCreation.Size = new System.Drawing.Size(1277, 414);
+            this.DataGridView_PrinterCreation.TabIndex = 0;
             // 
             // PrintQueueName
             // 
@@ -284,13 +283,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1306, 450);
             this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGridView_PrinterCreation);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "BulkCreatePrinterForm";
             this.Text = "Printer Creation";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_PrinterCreation)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -301,7 +300,7 @@
         #endregion
 
         private System.Windows.Forms.OpenFileDialog openDriverFileDialog;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataGridView_PrinterCreation;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.OpenFileDialog openCSVFileDialog;
         private System.Windows.Forms.MenuStrip menuStrip1;

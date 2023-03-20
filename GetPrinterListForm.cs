@@ -139,5 +139,10 @@ namespace PrinterServerToolbox
         {
 
         }
+
+        private void GetPrinterListForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

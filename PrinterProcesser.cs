@@ -25,13 +25,39 @@ namespace PrinterServerToolbox
             return StartScriptProcess(prnmngr, scriptArguments);
         }
 
-        public static string GetAllPrintDrivers()
+        public static List<PrinterDriver> GetAllPrintDrivers()
         {
             string scriptArguments = $"-l";
             string rawPrintDriverList = StartScriptProcess(prndrvr, scriptArguments);
             StringReader stringReader = new StringReader(rawPrintDriverList);
-            Regex driverName = new Regex(@"");
-            return "no";
+            Regex driverName = new Regex(@"^Driver name[^,]*");
+            Regex driverPath = new Regex(@"^Driver path[^,]*");
+            string line;
+            List<PrinterDriver> printerDrivers = new List<PrinterDriver>();
+            while((line = stringReader.ReadLine()) != null)
+            {
+                if (driverName.IsMatch(line))
+                {
+                    line = line.Remove(0, 11);
+                    string[] lines = line.Split(',');
+                    PrinterDriver newDriver = new PrinterDriver();
+                    newDriver.Name = lines[0];
+                    newDriver.Version = lines[1];
+                    newDriver.Environment = lines[2];
+
+                    stringReader.ReadLine();
+                    stringReader.ReadLine();
+                    stringReader.ReadLine();
+                    line = stringReader.ReadLine();
+                    line = line.Remove(0, 11);
+
+                    newDriver.Path = line;
+
+                    printerDrivers.Add(newDriver);
+                    newDriver = new PrinterDriver();
+                }
+            }
+            return printerDrivers;
         }
 
 

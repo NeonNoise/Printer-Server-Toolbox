@@ -151,6 +151,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GetPrinterListForm";
             this.Text = "Printer List";
+            this.Load += new System.EventHandler(this.GetPrinterListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PrinterListView)).EndInit();
             this.ResumeLayout(false);
 
