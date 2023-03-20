@@ -32,15 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BulkCreatePrinterForm));
             this.openDriverFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DataGridView_PrinterCreation = new System.Windows.Forms.DataGridView();
-            this.PrintQueueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsDefaultPrinter = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Shared = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ShareName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DriverName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.openCSVFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -59,6 +50,15 @@
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bulkCreatePrintQueuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testCreateFirstQueueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PrintQueueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsDefaultPrinter = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Shared = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ShareName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriverName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_PrinterCreation)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -86,63 +86,6 @@
             this.DataGridView_PrinterCreation.Name = "DataGridView_PrinterCreation";
             this.DataGridView_PrinterCreation.Size = new System.Drawing.Size(1277, 414);
             this.DataGridView_PrinterCreation.TabIndex = 0;
-            // 
-            // PrintQueueName
-            // 
-            this.PrintQueueName.HeaderText = "Print Queue Name";
-            this.PrintQueueName.Name = "PrintQueueName";
-            // 
-            // Location
-            // 
-            this.Location.HeaderText = "Location";
-            this.Location.Name = "Location";
-            // 
-            // Comment
-            // 
-            this.Comment.HeaderText = "Comment";
-            this.Comment.Name = "Comment";
-            // 
-            // PortName
-            // 
-            this.PortName.HeaderText = "Port Name";
-            this.PortName.Name = "PortName";
-            // 
-            // PortIP
-            // 
-            this.PortIP.HeaderText = "Port IP";
-            this.PortIP.Name = "PortIP";
-            // 
-            // IsDefaultPrinter
-            // 
-            this.IsDefaultPrinter.FalseValue = "N";
-            this.IsDefaultPrinter.HeaderText = "Default";
-            this.IsDefaultPrinter.Name = "IsDefaultPrinter";
-            this.IsDefaultPrinter.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsDefaultPrinter.TrueValue = "Y";
-            // 
-            // Shared
-            // 
-            this.Shared.FalseValue = "N";
-            this.Shared.HeaderText = "Shared";
-            this.Shared.Name = "Shared";
-            this.Shared.TrueValue = "Y";
-            // 
-            // ShareName
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.ShareName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ShareName.HeaderText = "Share Name";
-            this.ShareName.Name = "ShareName";
-            this.ShareName.ReadOnly = true;
-            // 
-            // DriverName
-            // 
-            this.DriverName.HeaderText = "Driver Name";
-            this.DriverName.Items.AddRange(new object[] {
-            "None"});
-            this.DriverName.Name = "DriverName";
-            this.DriverName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DriverName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // vScrollBar1
             // 
@@ -276,6 +219,65 @@
             this.testCreateFirstQueueToolStripMenuItem.Name = "testCreateFirstQueueToolStripMenuItem";
             this.testCreateFirstQueueToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.testCreateFirstQueueToolStripMenuItem.Text = "Test Create First Queue";
+            // 
+            // PrintQueueName
+            // 
+            this.PrintQueueName.HeaderText = "Print Queue Name";
+            this.PrintQueueName.Name = "PrintQueueName";
+            // 
+            // Location
+            // 
+            this.Location.HeaderText = "Location";
+            this.Location.Name = "Location";
+            // 
+            // Comment
+            // 
+            this.Comment.HeaderText = "Comment";
+            this.Comment.Name = "Comment";
+            // 
+            // PortName
+            // 
+            this.PortName.HeaderText = "Port Name";
+            this.PortName.Name = "PortName";
+            // 
+            // PortIP
+            // 
+            this.PortIP.HeaderText = "Port IP";
+            this.PortIP.Name = "PortIP";
+            // 
+            // IsDefaultPrinter
+            // 
+            this.IsDefaultPrinter.FalseValue = "N";
+            this.IsDefaultPrinter.HeaderText = "Default";
+            this.IsDefaultPrinter.Name = "IsDefaultPrinter";
+            this.IsDefaultPrinter.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsDefaultPrinter.TrueValue = "Y";
+            // 
+            // Shared
+            // 
+            this.Shared.FalseValue = "N";
+            this.Shared.HeaderText = "Shared";
+            this.Shared.Name = "Shared";
+            this.Shared.TrueValue = "Y";
+            // 
+            // ShareName
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.ShareName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ShareName.HeaderText = "Share Name";
+            this.ShareName.Name = "ShareName";
+            this.ShareName.ReadOnly = true;
+            // 
+            // DriverName
+            // 
+            this.DriverName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DriverName.HeaderText = "Driver Name";
+            this.DriverName.Items.AddRange(new object[] {
+            "None"});
+            this.DriverName.Name = "DriverName";
+            this.DriverName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DriverName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DriverName.Width = 84;
             // 
             // BulkCreatePrinterForm
             // 
