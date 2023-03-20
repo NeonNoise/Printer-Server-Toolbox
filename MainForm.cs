@@ -43,5 +43,20 @@ namespace PrinterServerToolbox
                 Directory.CreateDirectory(myDirectory);
             }
         }
+
+        private void CheckDriversFolder(object sender, EventArgs e)
+        {
+            string myDirectory = Directory.GetCurrentDirectory() + @"\PrinterDrivers";
+            if (!Directory.Exists(myDirectory))
+            {
+                Directory.CreateDirectory(myDirectory);
+            }
+        }
+
+        private void CheckAllFolders(object sender, EventArgs e)
+        {
+            CheckPropertysFolder(sender, e);
+            CheckDriversFolder(sender, e);
+        }
     }
 }

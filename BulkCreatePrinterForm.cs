@@ -26,5 +26,10 @@ namespace PrinterServerToolbox
         {
 
         }
+
+        private void RefreshPrinterOptions(object sender, EventArgs e)
+        {
+
+        }
     }
 }

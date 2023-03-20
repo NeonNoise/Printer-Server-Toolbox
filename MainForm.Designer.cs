@@ -58,7 +58,7 @@
             // 
             this.serviceControllerSpooler.ServiceName = "Spooler";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -66,9 +66,9 @@
             this.Controls.Add(this.BulkAddPrinterbutton);
             this.Controls.Add(this.button_OpenGetPrinterListForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Printer Server Toolbox";
-            this.Load += new System.EventHandler(this.CheckPropertysFolder);
+            this.Load += new System.EventHandler(this.CheckAllFolders);
             this.ResumeLayout(false);
 
         }
