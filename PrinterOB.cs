@@ -12,8 +12,8 @@ namespace PrinterServerToolbox
         private string portIP;
         private bool isNullPort;
 
-        Regex IPFormat = new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
-        Regex IPNulFormat = new Regex(@"nul");
+        readonly Regex IPFormat = new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
+        readonly Regex IPNulFormat = new Regex(@"nul");
 
         public string Name;
         public string Comment;

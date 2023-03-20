@@ -13,10 +13,10 @@ namespace PrinterServerToolbox
     public static class PrinterProcesser
     {
         //Script Path Reference
-        private static string prnmngr = @"C:\Windows\System32\printing_Admin_Scripts\en-US\Prnmngr.vbs";
-        private static string prnport = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prnport.vbs";
-        private static string prndrvr = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
-        private static string prncnfg = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
+        private static readonly string prnmngr = @"C:\Windows\System32\printing_Admin_Scripts\en-US\Prnmngr.vbs";
+        private static readonly string prnport = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prnport.vbs";
+        private static readonly string prndrvr = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
+        private static readonly string prncnfg = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
 
 
         public static string GetAllPrinters()
