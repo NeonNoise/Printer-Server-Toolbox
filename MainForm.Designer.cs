@@ -1,6 +1,6 @@
 ﻿namespace PrinterServerToolbox
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button_OpenGetPrinterListForm = new System.Windows.Forms.Button();
             this.BulkAddPrinterbutton = new System.Windows.Forms.Button();
             this.serviceControllerSpooler = new System.ServiceProcess.ServiceController();
