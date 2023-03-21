@@ -25,6 +25,15 @@ namespace PrinterServerToolbox
             return StartScriptProcess(prnmngr, scriptArguments);
         }
 
+        public static List<PrinterOB> GetAllInstalledPrinters()
+        {
+            List<PrinterOB> PrintersList = new List<PrinterOB>();
+
+            //todo: Get List
+
+            return PrintersList;
+        }
+
         public static List<PrinterDriver> GetAllPrintDrivers()
         {
             string scriptArguments = $"-l";

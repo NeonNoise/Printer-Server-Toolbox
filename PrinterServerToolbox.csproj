@@ -74,6 +74,12 @@
     <Compile Include="BulkCreatePrinterForm.Designer.cs">
       <DependentUpon>BulkCreatePrinterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreatePrinterConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePrinterConfigForm.Designer.cs">
+      <DependentUpon>CreatePrinterConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,7 +95,7 @@
     <Compile Include="PrinterDriver.cs" />
     <Compile Include="PrinterOB.cs" />
     <Compile Include="PrinterProcesser.cs" />
-    <Compile Include="PrinterPropertys.cs" />
+    <Compile Include="PrinterConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BulkCreatePrinterForm.resx">

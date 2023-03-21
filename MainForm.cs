@@ -58,5 +58,11 @@ namespace PrinterServerToolbox
             CheckPropertysFolder(sender, e);
             CheckDriversFolder(sender, e);
         }
+
+        private void OpenCreatePrinterConfigForm(object sender, EventArgs e)
+        {
+            CreatePrinterConfigForm createPrinterConfigForm = new CreatePrinterConfigForm();
+            createPrinterConfigForm.Show();
+        }
     }
 }
