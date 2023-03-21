@@ -59,6 +59,7 @@
             this.Shared = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ShareName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DriverName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ConfigProfile = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_PrinterCreation)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +82,8 @@
             this.IsDefaultPrinter,
             this.Shared,
             this.ShareName,
-            this.DriverName});
+            this.DriverName,
+            this.ConfigProfile});
             this.DataGridView_PrinterCreation.Location = new System.Drawing.Point(0, 27);
             this.DataGridView_PrinterCreation.Name = "DataGridView_PrinterCreation";
             this.DataGridView_PrinterCreation.Size = new System.Drawing.Size(1277, 414);
@@ -279,6 +281,14 @@
             this.DriverName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.DriverName.Width = 84;
             // 
+            // ConfigProfile
+            // 
+            this.ConfigProfile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ConfigProfile.HeaderText = "Config Profile";
+            this.ConfigProfile.Name = "ConfigProfile";
+            this.ConfigProfile.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ConfigProfile.Width = 87;
+            // 
             // BulkCreatePrinterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,5 +340,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Shared;
         private System.Windows.Forms.DataGridViewTextBoxColumn ShareName;
         private System.Windows.Forms.DataGridViewComboBoxColumn DriverName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ConfigProfile;
     }
 }

@@ -62,6 +62,6 @@ namespace PrinterServerToolbox
         public PrinterDriver Driver;
         public bool AdvancedPrinterFeaturesEnabled;
         public string PrintProcessor;
-        public PrinterPropertys PrinterDefaults;
+        public PrinterConfig PrinterDefaults;
     }
 }
