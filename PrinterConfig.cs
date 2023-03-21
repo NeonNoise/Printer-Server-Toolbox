@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrinterServerToolbox
 {
-    public class PrinterPropertys {
+    public class PrinterConfig {
 
         public string Name;
         public string Path;
