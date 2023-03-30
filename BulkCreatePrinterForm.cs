@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,14 @@ namespace PrinterServerToolbox
                 combo.Items.Add(driver.Name);
             }
             ((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["DriverName"]).DataSource = combo.Items;
+        }
+
+        private void TestCreateFirstQueue(object sender, EventArgs e)
+        {
+            DataGridViewRowCollection Rows = DataGridView_PrinterCreation.Rows;
+            DataGridViewRow Row = Rows.SharedRow(0);
+            Debug.WriteLine(Row.ToString());
+            
         }
     }
 }
