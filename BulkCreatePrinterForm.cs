@@ -10,11 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
 
 namespace PrinterServerToolbox
 {
     public partial class BulkCreatePrinterForm : Form
     {
+        
 
         public BulkCreatePrinterForm()
         {
@@ -51,26 +53,18 @@ namespace PrinterServerToolbox
 
         private void LoadExcel(object sender, CancelEventArgs e)
         {
-            string path = openDriverFileDialog.FileName;
-            OleDbConnection dbConnection;
-            DataSet dataSet;
-            OleDbDataAdapter dbCommand;
-            dbConnection = new OleDbConnection(@"provider=Microsoft.Jet.OLEDB.4.0;Data Source='" + path + "';Extended Properties=Excel 8.0");
-            dbCommand = new OleDbDataAdapter("select * from [Sheet1]", dbConnection);
-            dbCommand.TableMappings.Add("Table", "PrinterQueueName");
-            dataSet = new DataSet();
-            try
-            {
-                dbCommand.Fill(dataSet);
-            }
-            catch (Exception exception)
-            {
-                openDriverFileDialog.Title = exception.ToString();
-                openDriverFileDialog.ShowDialog();
-            }
+            string path = openExcelFileDialog.FileName;
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            Workbook ExcelWorkbook = ExcelApp.Workbooks.Open(path, 0, true, 5, "", "", true, XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+            Worksheet ExcelWorksheet = ExcelWorkbook.ActiveSheet;
             
-            DataGridView_PrinterCreation.DataSource = dataSet.Tables[0];
-            dbConnection.Close();
+            int RowCount = ExcelWorksheet.UsedRange.Row;
+            int ColumnCount = ExcelWorksheet.UsedRange.Column;
+
+            Range readRange = ExcelWorksheet.UsedRange;
+            string test = (readRange.Cells[1, 1] as Range).Value2;
+            MessageBox.Show(test);
+
         }
     }
 }
