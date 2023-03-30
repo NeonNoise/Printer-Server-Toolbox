@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BulkCreatePrinterForm));
             this.openDriverFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DataGridView_PrinterCreation = new System.Windows.Forms.DataGridView();
@@ -43,13 +43,11 @@
             this.DriverName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ConfigProfile = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.openCSVFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openExcelFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tXTToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ImportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cSVToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tXTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,8 +129,8 @@
             // 
             // ShareName
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.ShareName.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            this.ShareName.DefaultCellStyle = dataGridViewCellStyle2;
             this.ShareName.HeaderText = "Share Name";
             this.ShareName.Name = "ShareName";
             this.ShareName.ReadOnly = true;
@@ -163,9 +161,11 @@
             this.vScrollBar1.Size = new System.Drawing.Size(17, 432);
             this.vScrollBar1.TabIndex = 1;
             // 
-            // openCSVFileDialog
+            // openExcelFileDialog
             // 
-            this.openCSVFileDialog.FileName = "openFileDialog1";
+            this.openExcelFileDialog.FileName = "Import";
+            this.openExcelFileDialog.Title = "Import Excel Data";
+            this.openExcelFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadExcel);
             // 
             // menuStrip1
             // 
@@ -190,33 +190,18 @@
             // importExportToolStripMenuItem
             // 
             this.importExportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importToolStripMenuItem,
+            this.ImportButton,
             this.exportToolStripMenuItem});
             this.importExportToolStripMenuItem.Name = "importExportToolStripMenuItem";
-            this.importExportToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.importExportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importExportToolStripMenuItem.Text = "Import/Export";
             // 
-            // importToolStripMenuItem
+            // ImportButton
             // 
-            this.importToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cSVToolStripMenuItem,
-            this.tXTToolStripMenuItem1});
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.importToolStripMenuItem.Text = "Import";
-            // 
-            // cSVToolStripMenuItem
-            // 
-            this.cSVToolStripMenuItem.Name = "cSVToolStripMenuItem";
-            this.cSVToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
-            this.cSVToolStripMenuItem.Text = "CSV";
-            // 
-            // tXTToolStripMenuItem1
-            // 
-            this.tXTToolStripMenuItem1.Name = "tXTToolStripMenuItem1";
-            this.tXTToolStripMenuItem1.Size = new System.Drawing.Size(95, 22);
-            this.tXTToolStripMenuItem1.Text = "TXT";
-            this.tXTToolStripMenuItem1.Click += new System.EventHandler(this.tXTToolStripMenuItem1_Click);
+            this.ImportButton.Name = "ImportButton";
+            this.ImportButton.Size = new System.Drawing.Size(180, 22);
+            this.ImportButton.Text = "Import";
+            this.ImportButton.Click += new System.EventHandler(this.OpenImport);
             // 
             // exportToolStripMenuItem
             // 
@@ -224,7 +209,7 @@
             this.cSVToolStripMenuItem1,
             this.tXTToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // cSVToolStripMenuItem1
@@ -316,13 +301,11 @@
         private System.Windows.Forms.OpenFileDialog openDriverFileDialog;
         private System.Windows.Forms.DataGridView DataGridView_PrinterCreation;
         private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.OpenFileDialog openCSVFileDialog;
+        private System.Windows.Forms.OpenFileDialog openExcelFileDialog;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importExportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cSVToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tXTToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ImportButton;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cSVToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tXTToolStripMenuItem;
