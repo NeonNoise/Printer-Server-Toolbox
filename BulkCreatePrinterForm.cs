@@ -36,14 +36,35 @@ namespace PrinterServerToolbox
             ComboBox combo = new ComboBox();
             foreach(PrinterDriver driver in printerDrivers)
             {
-                combo.Items.Add(driver.Name);
+                combo.Items.Add(driver);
             }
             ((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["DriverName"]).DataSource = combo.Items;
         }
 
         private void TestCreateFirstQueue(object sender, EventArgs e)
         {
-            openExcelFileDialog.ShowDialog();
+            
+            PrinterOB WIPPrinter;
+            Queue<PrinterOB> PrintersQueue = new Queue<PrinterOB>();
+
+            foreach(DataGridViewRow row in DataGridView_PrinterCreation.Rows)
+            {
+                WIPPrinter = new PrinterOB();
+
+                WIPPrinter.Name = row.Cells[0].Value.ToString();
+                WIPPrinter.Location = row.Cells[1].Value.ToString();
+                WIPPrinter.Comment = row.Cells[2].Value.ToString();
+                WIPPrinter.PortName = row.Cells[3].Value.ToString();
+                WIPPrinter.PortIP = row.Cells[4].Value.ToString();
+                WIPPrinter.ShareName = row.Cells[6].Value.ToString();
+                WIPPrinter.Driver = (PrinterDriver) row.Cells[7].Value;
+                PrintersQueue.Enqueue(WIPPrinter);
+            }
+
+            while(PrintersQueue.Count > 0)
+            {
+                //PrinterProcesser.AddPrinters()
+            }
         }
 
         private void OpenImport(object sender, EventArgs e)

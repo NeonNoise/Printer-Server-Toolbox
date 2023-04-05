@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,5 +13,23 @@ namespace PrinterServerToolbox
         public string Path;
         public string Version;
         public string Environment;
+
+
+        public PrinterDriver(string path)
+        {
+            Path = path;
+        }
+        public PrinterDriver(string name,string path)
+        {
+            Name = name;
+            Path = path;
+        }
+        public PrinterDriver(string name, string path, string version, string enviroment)
+        {
+            Name = name;
+            Path = path;
+            Version = version;
+            Environment = enviroment;
+        }
     }
 }
