@@ -50,13 +50,13 @@ namespace PrinterServerToolbox
 
         private void TestCreateFirstQueue(object sender, EventArgs e)
         {
-            
-            PrinterOB WIPPrinter;
+
+
             Queue<PrinterOB> PrintersQueue = new Queue<PrinterOB>();
 
-            foreach(DataGridViewRow row in DataGridView_PrinterCreation.Rows)
+            foreach (DataGridViewRow row in DataGridView_PrinterCreation.Rows)
             {
-                WIPPrinter = new PrinterOB();
+                PrinterOB WIPPrinter = new PrinterOB();
 
                 WIPPrinter.Name = row.Cells[0].Value.ToString();
                 WIPPrinter.Location = row.Cells[1].Value.ToString();
@@ -64,14 +64,19 @@ namespace PrinterServerToolbox
                 WIPPrinter.PortName = row.Cells[3].Value.ToString();
                 WIPPrinter.PortIP = row.Cells[4].Value.ToString();
                 WIPPrinter.ShareName = row.Cells[6].Value.ToString();
-                WIPPrinter.Driver = (PrinterDriver) row.Cells[7].Value;
+                WIPPrinter.Driver = (PrinterDriver)row.Cells[7].Value;
                 PrintersQueue.Enqueue(WIPPrinter);
             }
-
-            while(PrintersQueue.Count > 0)
+            MessageBox.Show($"Name= {DataGridView_PrinterCreation.Rows[0].Cells[0].Value.ToString()} Driver = {DataGridView_PrinterCreation.Rows[0].Cells[7].Value.ToString()}");
+            try
             {
-                //PrinterProcesser.AddPrinters()
+                PrinterProcesser.AddPrinters(PrintersQueue);
             }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void OpenImport(object sender, EventArgs e)

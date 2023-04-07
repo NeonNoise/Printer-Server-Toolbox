@@ -91,13 +91,23 @@ namespace PrinterServerToolbox
         {
             foreach(PrinterOB printer in PrintersList){
 
-                string scriptArguments = $"-a -p {printer.Name} -m {printer.Driver}";
+                string scriptArguments = $"-a -p {printer.Name} -m {printer.Driver.Name}";
                 StartScriptProcess(prnmngr, scriptArguments);
 
             }
         }
 
-
+        public static void AddPrinters(Queue<PrinterOB> PrintersQueue)
+        {
+            string scriptArguments;
+            PrinterOB activePrinter;
+            while(PrintersQueue.Count > 0)
+            {
+                activePrinter = PrintersQueue.Dequeue();
+                scriptArguments = $"-a -p {activePrinter.Name} -m {activePrinter.Driver.Name}";
+                StartScriptProcess(prnmngr, scriptArguments);
+            }
+        }
 
 
         private static string StartScriptProcess(string scriptDirectory, string arguments)
