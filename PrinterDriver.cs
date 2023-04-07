@@ -14,7 +14,10 @@ namespace PrinterServerToolbox
         public string Version;
         public string Environment;
 
+        public PrinterDriver()
+        {
 
+        }
         public PrinterDriver(string path)
         {
             Path = path;
@@ -30,6 +33,11 @@ namespace PrinterServerToolbox
             Path = path;
             Version = version;
             Environment = enviroment;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

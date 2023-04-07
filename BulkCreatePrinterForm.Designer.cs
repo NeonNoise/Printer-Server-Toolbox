@@ -32,6 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BulkCreatePrinterForm));
             this.openDriverFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.DataGridView_PrinterCreation = new System.Windows.Forms.DataGridView();
+            this.PrintQueueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shared = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ShareName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriverName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ConfigProfile = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.openExcelFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -48,15 +57,6 @@
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bulkCreatePrintQueuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TestCreateFirstQueueButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.PrintQueueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shared = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ShareName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DriverName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ConfigProfile = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_PrinterCreation)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,66 @@
             this.DataGridView_PrinterCreation.Name = "DataGridView_PrinterCreation";
             this.DataGridView_PrinterCreation.Size = new System.Drawing.Size(1277, 414);
             this.DataGridView_PrinterCreation.TabIndex = 0;
+            this.DataGridView_PrinterCreation.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DataGrid_CellParsing);
+            // 
+            // PrintQueueName
+            // 
+            this.PrintQueueName.HeaderText = "Print Queue Name";
+            this.PrintQueueName.Name = "PrintQueueName";
+            // 
+            // Location
+            // 
+            this.Location.HeaderText = "Location";
+            this.Location.Name = "Location";
+            // 
+            // Comment
+            // 
+            this.Comment.HeaderText = "Comment";
+            this.Comment.Name = "Comment";
+            // 
+            // PortName
+            // 
+            this.PortName.HeaderText = "Port Name";
+            this.PortName.Name = "PortName";
+            // 
+            // PortIP
+            // 
+            this.PortIP.HeaderText = "Port IP";
+            this.PortIP.Name = "PortIP";
+            // 
+            // Shared
+            // 
+            this.Shared.FalseValue = "N";
+            this.Shared.HeaderText = "Shared";
+            this.Shared.Name = "Shared";
+            this.Shared.TrueValue = "Y";
+            // 
+            // ShareName
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.ShareName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ShareName.HeaderText = "Share Name";
+            this.ShareName.Name = "ShareName";
+            this.ShareName.ReadOnly = true;
+            // 
+            // DriverName
+            // 
+            this.DriverName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DriverName.HeaderText = "Driver Name";
+            this.DriverName.Items.AddRange(new object[] {
+            "None"});
+            this.DriverName.Name = "DriverName";
+            this.DriverName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DriverName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DriverName.Width = 84;
+            // 
+            // ConfigProfile
+            // 
+            this.ConfigProfile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ConfigProfile.HeaderText = "Config Profile";
+            this.ConfigProfile.Name = "ConfigProfile";
+            this.ConfigProfile.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ConfigProfile.Width = 87;
             // 
             // vScrollBar1
             // 
@@ -206,65 +266,6 @@
             this.TestCreateFirstQueueButton.Size = new System.Drawing.Size(205, 22);
             this.TestCreateFirstQueueButton.Text = "Test Create First Queue";
             this.TestCreateFirstQueueButton.Click += new System.EventHandler(this.TestCreateFirstQueue);
-            // 
-            // PrintQueueName
-            // 
-            this.PrintQueueName.HeaderText = "Print Queue Name";
-            this.PrintQueueName.Name = "PrintQueueName";
-            // 
-            // Location
-            // 
-            this.Location.HeaderText = "Location";
-            this.Location.Name = "Location";
-            // 
-            // Comment
-            // 
-            this.Comment.HeaderText = "Comment";
-            this.Comment.Name = "Comment";
-            // 
-            // PortName
-            // 
-            this.PortName.HeaderText = "Port Name";
-            this.PortName.Name = "PortName";
-            // 
-            // PortIP
-            // 
-            this.PortIP.HeaderText = "Port IP";
-            this.PortIP.Name = "PortIP";
-            // 
-            // Shared
-            // 
-            this.Shared.FalseValue = "N";
-            this.Shared.HeaderText = "Shared";
-            this.Shared.Name = "Shared";
-            this.Shared.TrueValue = "Y";
-            // 
-            // ShareName
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.ShareName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ShareName.HeaderText = "Share Name";
-            this.ShareName.Name = "ShareName";
-            this.ShareName.ReadOnly = true;
-            // 
-            // DriverName
-            // 
-            this.DriverName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DriverName.HeaderText = "Driver Name";
-            this.DriverName.Items.AddRange(new object[] {
-            "None"});
-            this.DriverName.Name = "DriverName";
-            this.DriverName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DriverName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DriverName.Width = 84;
-            // 
-            // ConfigProfile
-            // 
-            this.ConfigProfile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ConfigProfile.HeaderText = "Config Profile";
-            this.ConfigProfile.Name = "ConfigProfile";
-            this.ConfigProfile.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ConfigProfile.Width = 87;
             // 
             // BulkCreatePrinterForm
             // 

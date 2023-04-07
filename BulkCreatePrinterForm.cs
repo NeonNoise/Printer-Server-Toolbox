@@ -32,13 +32,20 @@ namespace PrinterServerToolbox
 
         private void RefreshPrinterOptions(object sender, EventArgs e)
         {
+            //List<PrinterDriver> printerDrivers = PrinterProcesser.GetAllPrintDrivers();
+            //ComboBox combo = new ComboBox();
+            //foreach(PrinterDriver driver in printerDrivers)
+            //{
+            //    combo.Items.Add(driver);
+            //}
+            //((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["DriverName"]).DataSource = combo.Items;
+            //((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["Drivername"]).DataPropertyName = "Name";
+            //((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["Drivername"]).ValueType = typeof(PrinterDriver);
+
             List<PrinterDriver> printerDrivers = PrinterProcesser.GetAllPrintDrivers();
-            ComboBox combo = new ComboBox();
-            foreach(PrinterDriver driver in printerDrivers)
-            {
-                combo.Items.Add(driver);
-            }
-            ((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["DriverName"]).DataSource = combo.Items;
+            DataGridViewComboBoxColumn myColumn = ((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["Drivername"]);
+            myColumn.DataSource = printerDrivers;
+            myColumn.DataPropertyName = "Name";
         }
 
         private void TestCreateFirstQueue(object sender, EventArgs e)
@@ -86,6 +93,16 @@ namespace PrinterServerToolbox
             string test = (readRange.Cells[1, 1] as Range).Value2;
             MessageBox.Show(test);
 
+        }
+
+        private void DataGrid_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            if(DataGridView_PrinterCreation.CurrentCell.OwningColumn is DataGridViewComboBoxColumn)
+            {
+                DataGridViewComboBoxEditingControl editingControl = (DataGridViewComboBoxEditingControl) DataGridView_PrinterCreation.EditingControl;
+                e.Value = editingControl.SelectedItem;
+                e.ParsingApplied = true;
+            }
         }
     }
 }
