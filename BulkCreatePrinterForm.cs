@@ -21,8 +21,6 @@ namespace PrinterServerToolbox
         public BulkCreatePrinterForm()
         {
             InitializeComponent();
-            
-            
         }
 
         private void tXTToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -32,15 +30,6 @@ namespace PrinterServerToolbox
 
         private void RefreshPrinterOptions(object sender, EventArgs e)
         {
-            //List<PrinterDriver> printerDrivers = PrinterProcesser.GetAllPrintDrivers();
-            //ComboBox combo = new ComboBox();
-            //foreach(PrinterDriver driver in printerDrivers)
-            //{
-            //    combo.Items.Add(driver);
-            //}
-            //((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["DriverName"]).DataSource = combo.Items;
-            //((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["Drivername"]).DataPropertyName = "Name";
-            //((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["Drivername"]).ValueType = typeof(PrinterDriver);
 
             List<PrinterDriver> printerDrivers = PrinterProcesser.GetAllPrintDrivers();
             DataGridViewComboBoxColumn myColumn = ((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["Drivername"]);
@@ -56,18 +45,52 @@ namespace PrinterServerToolbox
 
             foreach (DataGridViewRow row in DataGridView_PrinterCreation.Rows)
             {
+                DataGridViewRow workingRow = row;
                 PrinterOB WIPPrinter = new PrinterOB();
 
-                WIPPrinter.Name = row.Cells[0].Value.ToString();
-                WIPPrinter.Location = row.Cells[1].Value.ToString();
-                WIPPrinter.Comment = row.Cells[2].Value.ToString();
-                WIPPrinter.PortName = row.Cells[3].Value.ToString();
-                WIPPrinter.PortIP = row.Cells[4].Value.ToString();
-                WIPPrinter.ShareName = row.Cells[6].Value.ToString();
-                WIPPrinter.Driver = (PrinterDriver)row.Cells[7].Value;
+                for (int CellValue = 0; CellValue < 7; CellValue++)
+                {
+                    string ParsedValue = ParseCellValueFromRow(workingRow, CellValue);
+                    if(ParsedValue != "Invalid")
+                    {
+                        switch (CellValue)
+                        {
+                            case 0:
+                                WIPPrinter.Name = ParsedValue;
+                                break;
+                            case 1:
+                                WIPPrinter.Location = ParsedValue;
+                                break;
+                            case 2:
+                                WIPPrinter.Comment = ParsedValue;
+                                break;
+                            case 3:
+                                WIPPrinter.PortName = ParsedValue;
+                                break;
+                            case 4:
+                                WIPPrinter.PortIP = ParsedValue;
+                                break;
+                            case 5:
+                                //Unused
+                                break;
+                            case 6:
+                                WIPPrinter.ShareName = ParsedValue;
+                                break;
+                            default:
+                                //Do Nothing
+                                break;
+                        }
+                    }
+
+                    
+
+                }
+                PrinterDriver myDriver = new PrinterDriver((PrinterDriver)workingRow.Cells[7].Value);
+                WIPPrinter.Driver = myDriver;
+                MessageBox.Show(myDriver.Name);
                 PrintersQueue.Enqueue(WIPPrinter);
             }
-            MessageBox.Show($"Name= {DataGridView_PrinterCreation.Rows[0].Cells[0].Value.ToString()} Driver = {DataGridView_PrinterCreation.Rows[0].Cells[7].Value.ToString()}");
+            //MessageBox.Show($"Name= {DataGridView_PrinterCreation.Rows[0].Cells[0].Value.ToString()} Driver = {DataGridView_PrinterCreation.Rows[0].Cells[7].Value.ToString()}");
             try
             {
                 PrinterProcesser.AddPrinters(PrintersQueue);
@@ -77,6 +100,30 @@ namespace PrinterServerToolbox
 
             }
 
+        }
+
+        private string ParseCellValueFromRow(DataGridViewRow row,int index)
+        {
+            //string output;
+            //try
+            //{
+            //    output = row.Cells[index].Value.ToString();
+
+            //}
+            //catch (Exception)
+            //{
+            //    output = "Invalid";
+            //}
+
+            //if (string.IsNullOrEmpty(output))
+            //{
+            //    output = "Invalid";
+            //}
+
+            string output = "Test";
+
+            return output;
+            
         }
 
         private void OpenImport(object sender, EventArgs e)

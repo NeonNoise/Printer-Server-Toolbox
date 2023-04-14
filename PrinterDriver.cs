@@ -35,6 +35,14 @@ namespace PrinterServerToolbox
             Environment = enviroment;
         }
 
+        public PrinterDriver(PrinterDriver clone)
+        {
+            Name = clone.Name;
+            Path = clone.Path;
+            Version = clone.Version;
+            Environment = clone.Environment;
+        }
+
         public override string ToString()
         {
             return Name;

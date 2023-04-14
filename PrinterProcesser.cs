@@ -18,6 +18,11 @@ namespace PrinterServerToolbox
         private static readonly string prndrvr = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
         private static readonly string prncnfg = @"C:\Windows\System32\Printing_Admin_Scripts\en-US\Prndrvr.vbs";
 
+        public enum AddPrinterType
+        {
+            Name,
+            DriverOB
+        }
 
         public static string GetAllPrinters()
         {
