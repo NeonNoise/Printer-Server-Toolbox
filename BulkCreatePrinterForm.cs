@@ -32,9 +32,13 @@ namespace PrinterServerToolbox
         {
 
             List<PrinterDriver> printerDrivers = PrinterProcesser.GetAllPrintDrivers();
+            List<string> printerDriverNames = new List<string>();
             DataGridViewComboBoxColumn myColumn = ((DataGridViewComboBoxColumn)DataGridView_PrinterCreation.Columns["Drivername"]);
-            myColumn.DataSource = printerDrivers;
-            myColumn.DataPropertyName = "Name";
+            foreach(PrinterDriver driver in printerDrivers)
+            {
+                printerDriverNames.Add(driver.Name);
+            }
+            myColumn.DataSource = printerDriverNames;
         }
 
         private void TestCreateFirstQueue(object sender, EventArgs e)
@@ -85,9 +89,9 @@ namespace PrinterServerToolbox
                     
 
                 }
-                PrinterDriver myDriver = new PrinterDriver((PrinterDriver)workingRow.Cells[7].Value);
+                PrinterDriver myDriver = new PrinterDriver(((DataGridViewComboBoxCell)(workingRow.Cells[7].Value)).Value.ToString());
                 WIPPrinter.Driver = myDriver;
-                MessageBox.Show(myDriver.Name);
+                MessageBox.Show(WIPPrinter.ToString());
                 PrintersQueue.Enqueue(WIPPrinter);
             }
             //MessageBox.Show($"Name= {DataGridView_PrinterCreation.Rows[0].Cells[0].Value.ToString()} Driver = {DataGridView_PrinterCreation.Rows[0].Cells[7].Value.ToString()}");

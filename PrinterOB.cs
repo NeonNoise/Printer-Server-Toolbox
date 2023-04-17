@@ -63,5 +63,12 @@ namespace PrinterServerToolbox
         public bool AdvancedPrinterFeaturesEnabled;
         public string PrintProcessor;
         public PrinterConfig PrinterDefaults;
+
+
+        public override string ToString()
+        {
+            string output = $"Name= {this.Name}, Driver= {this.Driver.Name}";
+            return output;
+        }
     }
 }
