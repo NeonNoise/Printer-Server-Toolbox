@@ -10,12 +10,29 @@ namespace PrinterServerToolbox
     public class PrinterOB
     {
         private string portIP;
+        private string name;
         private bool isNullPort;
 
         readonly Regex IPFormat = new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
         readonly Regex IPNulFormat = new Regex(@"nul");
 
-        public string Name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if(value.StartsWith(" ")){
+                    name = value.TrimStart(' ');
+                }
+                else
+                {
+                    name = value;
+                }
+            }
+        }
         public string Comment;
         public string Location;
         public string PortName;
@@ -63,5 +80,12 @@ namespace PrinterServerToolbox
         public bool AdvancedPrinterFeaturesEnabled;
         public string PrintProcessor;
         public PrinterConfig PrinterDefaults;
+
+
+        public override string ToString()
+        {
+            string output = $"Name= {this.Name},Driver= {this.Driver.Name},Port Name/IP= {this.PortName}/{this.portIP}";
+            return output;
+        }
     }
 }
