@@ -89,42 +89,38 @@ namespace PrinterServerToolbox
                     
 
                 }
-                PrinterDriver myDriver = new PrinterDriver(((DataGridViewComboBoxCell)(workingRow.Cells[7].Value)).Value.ToString());
+                PrinterDriver myDriver = new PrinterDriver();
+                myDriver.Name = (string)workingRow.Cells[7].Value;
                 WIPPrinter.Driver = myDriver;
                 MessageBox.Show(WIPPrinter.ToString());
                 PrintersQueue.Enqueue(WIPPrinter);
             }
-            //MessageBox.Show($"Name= {DataGridView_PrinterCreation.Rows[0].Cells[0].Value.ToString()} Driver = {DataGridView_PrinterCreation.Rows[0].Cells[7].Value.ToString()}");
-            try
-            {
-                PrinterProcesser.AddPrinters(PrintersQueue);
-            }
-            catch (Exception)
-            {
+            
 
+                Stack<string> AddErrors = PrinterProcesser.AddPrinters(PrintersQueue);
+            foreach(string error in AddErrors)
+            {
+                MessageBox.Show(error);
             }
 
         }
 
         private string ParseCellValueFromRow(DataGridViewRow row,int index)
         {
-            //string output;
-            //try
-            //{
-            //    output = row.Cells[index].Value.ToString();
+            string output;
+            try
+            {
+                output = (string)row.Cells[index].Value;
 
-            //}
-            //catch (Exception)
-            //{
-            //    output = "Invalid";
-            //}
-
-            //if (string.IsNullOrEmpty(output))
-            //{
-            //    output = "Invalid";
-            //}
-
-            string output = "Test";
+            }
+            catch (Exception)
+            {
+                output = "Invalid";
+            }
+            if (string.IsNullOrEmpty(output))
+            {
+                output = "Invalid";
+            }
 
             return output;
             

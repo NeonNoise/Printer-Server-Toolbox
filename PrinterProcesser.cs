@@ -55,7 +55,7 @@ namespace PrinterServerToolbox
                     line = line.Remove(0, 11);
                     string[] lines = line.Split(',');
                     PrinterDriver newDriver = new PrinterDriver();
-                    newDriver.Name = lines[0];
+                    newDriver.Name = lines[0].Substring(1);
                     newDriver.Version = lines[1];
                     newDriver.Environment = lines[2];
 
@@ -92,26 +92,32 @@ namespace PrinterServerToolbox
             StartScriptProcess(prndrvr, scriptArguments);
         }
 
-        public static void AddPrinters(List<PrinterOB> PrintersList)
+        public static Stack<string> AddPrinters(List<PrinterOB> PrintersList)
         {
+            Stack<string> Errors = new Stack<string>();
+            string scriptArguments = "";
             foreach(PrinterOB activePrinter in PrintersList){
-
-                string scriptArguments = $"-a -p {activePrinter.Name} -m \"{activePrinter.Driver.Name}\" -r {activePrinter.PortName}";
-                StartScriptProcess(prnmngr, scriptArguments);
-
+                AddPrinterPort(activePrinter.PortName, activePrinter.PortIP, false);
+                scriptArguments = $"-a -p {activePrinter.Name} -m \"{activePrinter.Driver.Name}\" -r {activePrinter.PortName}";
+                Errors.Push(StartScriptProcess(prnmngr, scriptArguments));
             }
+
+            return Errors;
         }
 
-        public static void AddPrinters(Queue<PrinterOB> PrintersQueue)
+        public static Stack<string> AddPrinters(Queue<PrinterOB> PrintersQueue)
         {
+            Stack<string> Errors = new Stack<string>();
             string scriptArguments;
             PrinterOB activePrinter;
             while(PrintersQueue.Count > 0)
             {
                 activePrinter = PrintersQueue.Dequeue();
                 scriptArguments = $"-a -p {activePrinter.Name} -m \"{activePrinter.Driver.Name}\" -r {activePrinter.PortName}";
-                StartScriptProcess(prnmngr, scriptArguments);
+                Errors.Push(StartScriptProcess(prnmngr, scriptArguments));
             }
+
+            return Errors;
         }
 
 
