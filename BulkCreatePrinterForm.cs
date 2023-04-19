@@ -92,7 +92,7 @@ namespace PrinterServerToolbox
                 PrinterDriver myDriver = new PrinterDriver();
                 myDriver.Name = (string)workingRow.Cells[7].Value;
                 WIPPrinter.Driver = myDriver;
-                MessageBox.Show(WIPPrinter.ToString());
+                //MessageBox.Show(WIPPrinter.ToString());
                 PrintersQueue.Enqueue(WIPPrinter);
             }
             

@@ -55,7 +55,6 @@
             this.openSettingsDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openDriversDirecotryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bulkCreatePrintQueuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TestCreateFirstQueueButton = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_PrinterCreation)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -247,24 +246,17 @@
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bulkCreatePrintQueuesToolStripMenuItem,
             this.TestCreateFirstQueueButton});
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.runToolStripMenuItem.Text = "Run";
             // 
-            // bulkCreatePrintQueuesToolStripMenuItem
-            // 
-            this.bulkCreatePrintQueuesToolStripMenuItem.Name = "bulkCreatePrintQueuesToolStripMenuItem";
-            this.bulkCreatePrintQueuesToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.bulkCreatePrintQueuesToolStripMenuItem.Text = "Bulk Create Print Queues";
-            // 
             // TestCreateFirstQueueButton
             // 
             this.TestCreateFirstQueueButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.TestCreateFirstQueueButton.Name = "TestCreateFirstQueueButton";
-            this.TestCreateFirstQueueButton.Size = new System.Drawing.Size(205, 22);
-            this.TestCreateFirstQueueButton.Text = "Test Create First Queue";
+            this.TestCreateFirstQueueButton.Size = new System.Drawing.Size(180, 22);
+            this.TestCreateFirstQueueButton.Text = "Bulk Create Queues";
             this.TestCreateFirstQueueButton.Click += new System.EventHandler(this.TestCreateFirstQueue);
             // 
             // BulkCreatePrinterForm
@@ -303,7 +295,6 @@
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bulkCreatePrintQueuesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TestCreateFirstQueueButton;
         private System.Windows.Forms.ToolStripMenuItem openSettingsDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openDriversDirecotryToolStripMenuItem;
