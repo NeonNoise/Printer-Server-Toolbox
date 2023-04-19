@@ -77,12 +77,14 @@ namespace PrinterServerToolbox
 
         public static void AddPrinterPort(string PortName, string PortIP, bool SNMPon)
         {
-            string snmp = "d";
+            string scriptArguments;
+            scriptArguments = $"-a -r {PortName} -o raw -h {PortIP} -md";
+            StartScriptProcess(prnport, scriptArguments);
             if (SNMPon)
             {
-                snmp = "e";
+                scriptArguments = $"-t -r {PortName} -me -y public -i 1 -n 9100";
             }
-            string scriptArguments = $"-a -r {PortName} -o raw -h {PortIP} -m{snmp}";
+
             StartScriptProcess(prnport, scriptArguments);
         }
 
@@ -97,7 +99,7 @@ namespace PrinterServerToolbox
             Stack<string> Errors = new Stack<string>();
             string scriptArguments = "";
             foreach(PrinterOB activePrinter in PrintersList){
-                AddPrinterPort(activePrinter.PortName, activePrinter.PortIP, false);
+                AddPrinterPort(activePrinter.PortName, activePrinter.PortIP, true);
                 scriptArguments = $"-a -p {activePrinter.Name} -m \"{activePrinter.Driver.Name}\" -r {activePrinter.PortName}";
                 Errors.Push(StartScriptProcess(prnmngr, scriptArguments));
             }
@@ -113,6 +115,7 @@ namespace PrinterServerToolbox
             while(PrintersQueue.Count > 0)
             {
                 activePrinter = PrintersQueue.Dequeue();
+                AddPrinterPort(activePrinter.PortName, activePrinter.PortIP, false);
                 scriptArguments = $"-a -p {activePrinter.Name} -m \"{activePrinter.Driver.Name}\" -r {activePrinter.PortName}";
                 Errors.Push(StartScriptProcess(prnmngr, scriptArguments));
             }
